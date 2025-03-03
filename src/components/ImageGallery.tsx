@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ImageCard from "./ImageCard";
 import { Button } from "./ui/button";
-import { Grid, List, Search } from "lucide-react";
+import { Grid, List, Search, Eye, Copy } from "lucide-react";
 import { Input } from "./ui/input";
 import {
   Select,

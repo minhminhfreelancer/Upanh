@@ -4,10 +4,9 @@ import ImageDetails from "./ImageDetails";
 import UploadProgress from "./UploadProgress";
 import UploadZone from "./UploadZone";
 import CloudflareUploadGuide from "./CloudflareUploadGuide";
+import Header from "./Header";
 import { useToast } from "./ui/use-toast";
 import { Toaster } from "./ui/toaster";
-import { Upload, HelpCircle } from "lucide-react";
-import { Button } from "./ui/button";
 import { api } from "@/lib/api";
 
 interface Image {
@@ -244,35 +243,10 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* Header with upload button */}
-      <div className="bg-white border-b shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <img
-              src="https://api.dicebear.com/7.x/avataaars/svg?seed=cloudflare"
-              alt="Logo"
-              className="h-8 w-8"
-            />
-            <h1 className="text-xl font-bold">Cloudflare Image Uploader</h1>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="outline"
-              onClick={() => setShowGuide(!showGuide)}
-              className="flex items-center gap-2"
-            >
-              <HelpCircle className="h-4 w-4" />
-              Hướng dẫn
-            </Button>
-            <Button
-              onClick={() => setShowUploadZone(true)}
-              className="flex items-center gap-2"
-            >
-              <Upload className="h-4 w-4" />
-              Upload Image
-            </Button>
-          </div>
-        </div>
-      </div>
+      <Header
+        onUploadClick={() => setShowUploadZone(true)}
+        onGuideClick={() => setShowGuide(!showGuide)}
+      />
 
       <main className="flex-1 container mx-auto px-4 py-6">
         {/* Cloudflare Upload Guide */}
