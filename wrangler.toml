@@ -1,0 +1,10 @@
+name = "cloudflare-image-uploader"
+main = "src/worker.js"
+compatibility_date = "2023-12-01"
+
+[site]
+source = "dist"
+bucket = "./dist"
+
+[build]
+command = "npm run build"
