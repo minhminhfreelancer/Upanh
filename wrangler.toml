@@ -1,4 +1,4 @@
-name = "upanhfree"
+name = "cloudflare-image-uploader"
 main = "src/worker.js"
 compatibility_date = "2023-12-01"
 
@@ -8,3 +8,13 @@ bucket = "./dist"
 
 [build]
 command = "npm run build"
+
+# R2 configuration
+[[r2_buckets]]
+binding = "IMAGES_BUCKET"
+bucket_name = "images-bucket"
+
+[env.production]
+routes = [
+  { pattern = "*", zone_name = "upanhfree.minhminhfreelancer.workers.dev" }
+]
